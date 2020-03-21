@@ -1,3 +1,5 @@
+# Java笔记
+
 ## 1.Java基础
 
 ---
@@ -102,6 +104,22 @@ class xxx implements xxx{
 
 其允许所有的方法都为抽象的，其只是一种描述“说明了所有实现类此接口的类看起来都像这个接口这样”，接口中之需要确定方法名、参数列表和返回值类型，剩下的是都交给实现它的类补充，其实现类就和普通的类一样可以被继承可以生成对象等。
 
+接口之间可以通过继承来拓展接口
+
+```java
+interface aaa{
+    void a();
+}
+interface bbb extends aaa{
+    void b();
+}
+class ab implements bbb{
+    public void a() {}
+    public void b() {}
+}
+
+```
+
 
 
 ### 1.8 完全解耦
@@ -115,4 +133,42 @@ class xxx implements xxx{
 ### 1.9 Java多重继承
 
 ---
+
+```java
+interface aaa{
+    void aaa();
+    //此接口与class d中存在的方法签名相同
+    void d();
+}
+interface bbb{
+    void bbb();
+}
+interface ccc{
+    void ccc();
+}
+class ddd{
+    public void d() {}
+}
+class OneC extends ddd
+    implements aaa,bbb,ccc{
+    public aaa() {}
+    public bbb() {}
+    public ccc() {}
+    //这里不实现void d()接口
+}
+public class C{
+    //在生成对象时尽管void d()接口没有在实现类中实现，但却在实现类的基类中找到了该方法的实现
+    OneC O = new OneC();
+}
+```
+
+
+
+### 1.10 访问权限控制
+
+---
+
+
+
+
 
