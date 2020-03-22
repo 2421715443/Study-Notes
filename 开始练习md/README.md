@@ -31,7 +31,7 @@
 
 ## 图片
 
-[阿库娅](./assets/akuya.jpg)
+![阿库娅](./assets/akuya.jpg)
 
 ## 超链接
 
