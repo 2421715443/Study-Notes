@@ -24,8 +24,22 @@ JVM由三部分组成
 
 ![JVM](./assets/SharedScreenshot.jpg)
 
-### 堆
+
+
+### 栈
 
 ---
 
-堆区域也可以称作线程区域
+栈区域也可以称作线程区域，栈会为线程内的方法创建栈帧，栈FILO(first in last out)先进后出
+
+> 局部变量表
+>
+> 操作数栈
+>
+> 动态链接‘
+>
+> 方法出口
+
+JVM指令
+
+[JVM指令](https://www.cnblogs.com/lsy131479/p/11201241.html)
