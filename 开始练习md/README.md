@@ -31,7 +31,7 @@
 
 ## 图片
 
-[阿库娅](https://github.com/2421715443/Study-Notes/blob/master/%E5%BC%80%E5%A7%8B%E7%BB%83%E4%B9%A0md/assets/%E9%98%BF%E5%BA%93%E5%A8%85.jpg)
+[阿库娅](./assest/akuya.jpg)
 
 ## 超链接
 
