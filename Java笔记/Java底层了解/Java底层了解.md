@@ -84,7 +84,9 @@ ireturn 从方法中返回int类型的数据
 
 和垃圾回收机制（GC）紧密相连
 
-Eden区储存最新的对象，当Eden充满后会进行minor gc将无gc root的对象进行回收多余的存入From，Eden再次存满后将再次minor gc，多余的存入To中，每次进行minor gc都会对其年龄加1，默认15代后进入老年区。当老年区满后会进行一次Full gc，会暂停当前线程，对性能和执行时间影响较大。
+Eden区储存最新的对象，当Eden充满后会进行minor gc将无gc root的对象进行回收多余的存入From，Eden再次存满后将再次minor gc，多余的存入To中，每次进行minor gc都会对其年龄加1，默认15代后进入老年区。当老年区满后会进行一次Full gc。
+
+minor gc和Full gc都会造成 “全世界的暂停（stop-the-world）”，停止应用程序的线程。对于大部分应用程序，停顿导致的延迟都是可以忽略不计的，如果minor gc时Eden的大部分对象都能被认作是垃圾，那么就不会复制到Survivor区，如果不是垃圾，那么情况就相反了，执行暂停时间会长很多。
 
 
 
