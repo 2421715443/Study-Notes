@@ -7,9 +7,9 @@ public class Demo07 {
         //字符串连接   String +
         int a = 10;
         int b = 20;
-        System.out.println(a+b);
-        System.out.println("a"+a+b);
-        System.out.println(a+b+"a");
+        System.out.println(a + b);
+        System.out.println("a" + a + b);
+        System.out.println(a + b + "a");
 
 
     }

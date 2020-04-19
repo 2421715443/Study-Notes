@@ -25,13 +25,13 @@ public class Demo03 {
         //float     有限的     离散的     舍入误差    大约      接近但不等于
         //double
         float a = 0.1f;
-        double b = 1.0/10;
+        double b = 1.0 / 10;
         float c = 1234364183144567f;
-        double d = c+1;
+        double d = c + 1;
 
         System.out.println("==========================================");
-        System.out.println(a==b);
-        System.out.println(c==d);
+        System.out.println(a == b);
+        System.out.println(c == d);
 
 
         //============================
@@ -43,23 +43,23 @@ public class Demo03 {
 
         System.out.println("==========================================");
         System.out.println(c1);
-        System.out.println((int)c1);
+        System.out.println((int) c1);
         System.out.println(c2);
-        System.out.println((int)c2);
+        System.out.println((int) c2);
         System.out.println(c3);
 
         //转义字符
         //  \t
         //  \n
 
-        String  qa = new String("hello");
-        String  qb = new String("hello");
-        String  qc = "hello";
-        String  qd = "hello";
+        String qa = new String("hello");
+        String qb = new String("hello");
+        String qc = "hello";
+        String qd = "hello";
 
         System.out.println("==========================================");
-        System.out.println(qa==qb);
-        System.out.println(qc==qd);
+        System.out.println(qa == qb);
+        System.out.println(qc == qd);
 
 
     }

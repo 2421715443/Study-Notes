@@ -12,14 +12,14 @@ public class Demo03 {
         int t = 0;
         System.out.println("请输入");
 
-        for (;scanner.hasNextDouble();t++){
+        for (; scanner.hasNextDouble(); t++) {
             double v = scanner.nextDouble();
-            sum+=v;
+            sum += v;
 
         }
 
         System.out.println(t + "和为" + sum);
-        System.out.println(t + "平均值为" + (sum/t));
+        System.out.println(t + "平均值为" + (sum / t));
 
 
     }

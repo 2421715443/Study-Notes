@@ -10,12 +10,12 @@ public class Doc {
     String name;
 
     /**
-     * @author zanbo
      * @param name
      * @return
      * @throws Exception
+     * @author zanbo
      */
-    public String test(String name) throws Exception{
+    public String test(String name) throws Exception {
         return name;
     }
 
