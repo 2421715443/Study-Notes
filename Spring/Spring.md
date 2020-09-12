@@ -5,7 +5,7 @@
 - Spring:
 - 大杂烩开始了
 - 2002年首次推出了Spring的雏形：interface21框架！
-- 2004年3月24日发布了正式版1.0
+-  2004年3月24日发布了正式版1.0
 - SSH：Struct2+Spring+Hibernate(全自动持久性框架)
 - SSM：SpringMVC+Spring+Mybatis(半自动持久性框架)
 
@@ -680,3 +680,112 @@ public class UserServiceProxy implements UserService {
 
 
 ## 5.3 动态代理
+
+- 动态代理和静态代理角色一样
+- 动态代理和代理类是自动生成的，不是自己写的
+- 动态代理分为两大类：基于接口的，基于类的
+    - 基于接口---JDK动态代理
+    - 基于类：cglib
+    - java字节码实现：javasist
+
+需要了解两个类：Proxy：代理，InvocationHandler：调用处理程序
+
+### 5.3.1 InvocationHandler
+
+```java
+//用这个类生成代理类
+public class ProxyInvocationHandler implements InvocationHandler {
+
+    //被代理的接口
+    private Object object;
+
+    //生成得到代理类
+    public Object getProxy(Object object) {
+        this.object = object;
+        return Proxy.newProxyInstance(this.getClass().getClassLoader(), 	object.getClass().getInterfaces(), this);
+    }
+
+    //处理代理实例，并返回结果
+    public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
+        log(method.getName());
+        Object invoke = method.invoke(object, args);
+        return invoke;
+    }
+
+    public void log(String msg) {
+        System.out.println("使用了" + msg + "方法");
+    }
+}
+```
+
+动态代理的好处：
+
+- 使真实角色的操作更加纯粹！不用关注一些公共的业务
+- 公共业务交给代理角色！实现业务分工
+- 公共业务发生拓展时，方便集中管理
+- 一个动态类代理一个接口，一般对应一类业务
+- 一个动态代理类可以代理多个类，只要是实现了同一个接口
+
+
+
+# 6. AOP
+
+## 6.1什么是AOP
+
+面向切面编程
+
+
+
+## 6.2 使用Spring实现Aop
+
+导入依赖
+
+```xml
+<dependency>
+    <groupId>org.aspectj</groupId>
+    <artifactId>aspectjweaver</artifactId>
+    <version>1.9.4</version>
+</dependency>
+```
+
+
+
+方式一：使用Spring的API
+
+```xml
+    <!--注册bean-->
+    <bean class="com.zanbo.service.UserServiceImpl" id="userService"/>
+    <bean class="com.zanbo.log.BeforeLog" id="beforeLog"/>
+    <bean class="com.zanbo.log.AfterLog" id="afterLog"/>
+<!--方式一：使用Spring的API-->
+<!--配置aop:需要导入aop的约束-->
+<aop:config>
+    <!--切入点:expression:表达式,execution(要执行的位置！)-->
+    <aop:pointcut id="pointcut" expression="execution(* com.zanbo.service.UserServiceImpl.*(..))"/>
+    <!--执行环绕增强-->
+    <aop:advisor advice-ref="beforeLog" pointcut-ref="pointcut"/>
+    <aop:advisor advice-ref="afterLog" pointcut-ref="pointcut"/>
+</aop:config>
+```
+
+方法二：使用自定义类实现AOP
+
+自定义切面：由横切关注点被模块化而成的特殊对象，即，它是一个类
+
+```xml
+<!--方法二：使用自定义类实现AOP-->
+<bean class="com.zanbo.diy.DiyPoint" id="diyPoint"/>
+<aop:config>
+    <!--自定义切面-->
+    <aop:aspect ref="diyPoint">
+        <aop:pointcut id="pointcut" expression="execution(* com.zanbo.service.UserServiceImpl.*(..))"/>
+        <aop:before method="before" pointcut-ref="pointcut"/>
+        <aop:after method="after" pointcut-ref="pointcut"/>
+    </aop:aspect>
+</aop:config>
+```
+
+方法三：使用注解方式实现AOP
+
+# 7. 整合Mybatis
+
