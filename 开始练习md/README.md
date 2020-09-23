@@ -32,7 +32,7 @@
 ## 图片
 
 ![阿库娅](./assets/akuya.jpg)
-![阿库娅](https://ss0.bdstatic.com/94oJfD_bAAcT8t7mm9GUKT-xh_/timg?image&quality=100&size=b4000_4000&sec=1600848062&di=f706c8fcfbfb292897b7c35c96fc09ac&src=http://a3.att.hudong.com/14/75/01300000164186121366756803686.jpg)
+![fj](https://ss0.bdstatic.com/94oJfD_bAAcT8t7mm9GUKT-xh_/timg?image&quality=100&size=b4000_4000&sec=1600848062&di=f706c8fcfbfb292897b7c35c96fc09ac&src=http://a3.att.hudong.com/14/75/01300000164186121366756803686.jpg)
 
 ## 超链接
 
